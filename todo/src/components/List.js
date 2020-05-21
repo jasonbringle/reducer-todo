@@ -1,23 +1,20 @@
-import React, { useReducer } from 'react'
-import reducer  from '../reducers/index'
-import initialState from '../reducers/index'
+import React from 'react'
 
 export default function List (props) {
-    
-const [state, dispatch] = useReducer(reducer, initialState);
 
+console.log("STATE IN List.js", props.state)
     return(
         <div>
-            {/* {state.map(i => 
+            {props.state.map(i => 
                 <div className="todoContainer">
                     <div className="todo" >
                         <div className={`active${i.completed ? " no" : ""}`}
-                            onClick={() => {dispatch({ type: "TOGGLE_COMPLETED", payload: newTodo })}}>
-                        {i.item}
+                            onClick={() => {props.dispatch({ type: "TOGGLE_COMPLETED", payload: props.state })}}
+                        >{i.item}
                         </div>    
                     </div>
                 </div>)
-            } */}
+            }
         </div>
     )
 }
