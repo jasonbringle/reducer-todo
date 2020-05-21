@@ -5,7 +5,7 @@ export const initialState = [{
     id: 3892987589
 }]
 
-export const reducer = (state, action) => {
+const reducer = (state, action) => {
     switch (action.type){
         case "LIST_OF_TODOS":
             return [
@@ -20,7 +20,7 @@ export const reducer = (state, action) => {
                 return [
                 ...state,
                 {
-                completed: !false,
+                completed: !false ,
                 }
                 ];
             default:
@@ -28,3 +28,4 @@ export const reducer = (state, action) => {
     }
 };
 
+export default reducer;

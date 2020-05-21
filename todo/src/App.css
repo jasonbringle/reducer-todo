@@ -36,3 +36,45 @@
     transform: rotate(360deg);
   }
 }
+
+.todo{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: pink; */
+  width: 15rem;
+  height: 10rem;
+  font-size: 1.5rem;
+  box-shadow: 0px 70px 90px 5px black;
+  /* background-image: url("../img/notepaper.jpg"); */
+  background-size: 240px auto;
+  background-repeat: no-repeat;
+}
+
+.todoContainer{
+  display:flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding:1rem;
+
+}
+
+.active{
+  /* width: 45%; */
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 10rem;
+  text-align: center;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.active.no{
+    background-color:rgba(255, 160, 160, 0.5);
+    text-decoration: line-through;
+    text-decoration-color: black;
+  }
