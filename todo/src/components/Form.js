@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useReducer } from 'react'
+import reducer from '../reducers/index'
 
-export default function Form(){
+ const Form = (props) => {
+    
+
     return(
         <div>
             <form>
                 <label>Add Todo</label>
-                <input></input>
+
+                <input 
+                placeholder="New Todo"
+                onChange={props.handleChanges}
+                ></input>
+
+                <button>ADD</button>
             </form>
         </div>
     )
 }
+export default Form;

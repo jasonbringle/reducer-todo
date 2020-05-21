@@ -1,13 +1,12 @@
 import React, { useReducer } from 'react'
-import { reducer, initialState } from '../reducers'
+// import { reducer, initialState } from '../reducers'
 
-export default function List () {
-    const [state, dispatch] = useReducer(reducer, initialState)
-    // const [newTodo, setNewTodo] = useState(initialState.item);
+export default function List (props) {
+    
 
     return(
         <div>
-            {state.item}
+            {props.todos}
         </div>
     )
 }
