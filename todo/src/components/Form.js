@@ -1,11 +1,9 @@
-import React, { useReducer,useState } from 'react'
-import { reducer } from '../reducers/index'
-// import reducer from '../reducers/index'
+import React, { useState } from 'react'
 
 
  const Form = (props) => {
     const [newTodo, setNewTodo] = useState("");
-    const [state, dispatch] = useReducer(reducer);
+    // const [state, dispatch] = useReducer(reducer);
 
     const handleChanges = e => {
         setNewTodo(e.target.value);
@@ -15,6 +13,10 @@ import { reducer } from '../reducers/index'
         e.preventDefault();
         props.dispatch({ type: "LIST_OF_TODOS", payload: newTodo });
         clearField()
+    }
+
+    const clearSelectedTodos = () => {
+        props.dispatch({ type: "CLEAR-SELECTED-TODOS", payload: props.state})
     }
 
     const clearField = () => {
@@ -34,6 +36,7 @@ import { reducer } from '../reducers/index'
 
                 <button>ADD</button>
             </form>
+            <button onClick={clearSelectedTodos}>Clear Selected Todos!</button>
         </div>
     )
 }
