@@ -43,12 +43,15 @@
   align-items: center;
   width: 15rem;
   height: 10rem;
-  font-size: 1.5rem;
+  font-size: 3rem;
   color: black;
-  box-shadow: 0px 70px 90px 5px black;
-  background-color: white;
+  font-family: 'Just Another Hand', cursive;;
+  box-shadow: 0px 50px 30px 1px black;
+  /* background-color: white; */
   background-size: 240px auto;
   background-repeat: no-repeat;
+  background-image: linear-gradient(rgb(151, 201, 252, .8),white);
+
 }
 
 .todoContainer{

@@ -28,6 +28,7 @@ const FormDiv = styled.div`
     flex-direction:column;
     padding-left: 1em;
     color:white;
+    font-family:Arial, Helvetica, sans-serif;
 `
 const ClearDiv = styled.div`
     display:flex;
@@ -35,6 +36,7 @@ const ClearDiv = styled.div`
     padding-right:1em;
     color:white;
     align-items:flex-end;
+    font-family:Arial, Helvetica, sans-serif;
 `
 
  const Form = (props) => {

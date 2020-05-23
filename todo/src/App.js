@@ -11,6 +11,7 @@ const MainDiv = styled.div`
     background-image: url(${require(`./img/downtown.jpg`)});
     background-size:cover;
     background-attachment: fixed;
+    background-position-y:-300px;
     height: 80rem;    
 `
 
