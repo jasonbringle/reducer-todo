@@ -47,8 +47,9 @@ const ClearDiv = styled.div`
 
     const addTodo = (e) => {
         e.preventDefault();
+        if(newTodo !== ''){
         props.dispatch({ type: "LIST_OF_TODOS", payload: newTodo });
-        clearField()
+        clearField()}
     }
 
     const clearSelectedTodos = () => {
