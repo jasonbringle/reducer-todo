@@ -1,32 +1,26 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const FormContainer = styled.div`
+    z-index: auto;
     display:flex;
     flex-direction:row;
     width:100%;
     justify-content:space-between;
 `
-const Button = styled.button`
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    border: 2px solid grey;
-    border-radius: 3px;
-    width: 6em;
+
+const AddButton = styled.div`
+    display:flex;
+    flex-direction:column;
+    padding-left: 3rem;
+    padding-top: 1rem;
 `
-const ClearButton = styled.button`
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    border: 2px solid grey;
-    border-radius: 3px;
-    width: 6em;
-`
+
 const FormDiv = styled.div`
     display:flex;
     flex-direction:column;
     padding-left: 1em;
+    padding-top: 1rem;
     color:white;
     font-family:Arial, Helvetica, sans-serif;
 `
@@ -39,9 +33,15 @@ const ClearDiv = styled.div`
     font-family:Arial, Helvetica, sans-serif;
 `
 
+const ClearButton = styled.div`
+    display:flex;
+    flex-direction:column;
+    padding-left: 1rem;
+    padding-top: 1rem;
+`
+
  const Form = (props) => {
     const [newTodo, setNewTodo] = useState("");
-    // const [state, dispatch] = useReducer(reducer);
 
     const handleChanges = e => {
         setNewTodo(e.target.value);
@@ -49,7 +49,8 @@ const ClearDiv = styled.div`
 
     const addTodo = (e) => {
         e.preventDefault();
-        if(newTodo !== ''){
+        //WHy cant I get this test to work for duplicate item names?????
+        if(newTodo !== '' && newTodo !== props.state.find(name => name.item === newTodo)){
         props.dispatch({ type: "LIST_OF_TODOS", payload: newTodo });
         clearField()}
     }
@@ -66,7 +67,7 @@ const ClearDiv = styled.div`
         <FormContainer>
             <form onSubmit={addTodo}>
                 <FormDiv>
-                <label>Todo Name</label>
+                {/* <label>Todo Name</label> */}
 
                 <input 
                 placeholder="New Todo"
@@ -74,12 +75,18 @@ const ClearDiv = styled.div`
                 onChange={handleChanges}
                 ></input>
                 </FormDiv>
-
-                <Button>ADD</Button>
+                <AddButton>
+                <button>Add</button>
+                </AddButton>
+                
             </form>
             <ClearDiv>
             <label>Clear Selected Todos</label>
-            <ClearButton onClick={clearSelectedTodos}>Clear</ClearButton>
+
+            <ClearButton>
+            <button onClick={clearSelectedTodos}>Clear</button>
+            </ClearButton>
+            
             </ClearDiv>
         </FormContainer>
     )

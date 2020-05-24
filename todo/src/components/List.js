@@ -7,7 +7,7 @@ const TodoList = styled.div`
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    padding-top:200px;
+    padding-top:300px;
 `
 
 export default function List (props) {
