@@ -19,8 +19,8 @@ export default function App(){
     const [state, dispatch] = useReducer(reducer, initialState);
     return(
         <MainDiv>
-            <Header dispatch={dispatch} state={state} />
-            <List dispatch={dispatch} state={state}/>
+            <Header dispatch={dispatch} state={state}/>
+            <List dispatch={dispatch} state={state} />
         </MainDiv>
     )
 }

@@ -32,6 +32,10 @@ const ClearDiv = styled.div`
     align-items:flex-end;
     font-family:Arial, Helvetica, sans-serif;
 `
+const ClearDivLabel = styled.div`
+    text-shadow: 0px 20px 30px black;
+
+`
 
 const ClearButton = styled.div`
     display:flex;
@@ -44,13 +48,13 @@ const ClearButton = styled.div`
     const [newTodo, setNewTodo] = useState("");
 
     const handleChanges = e => {
-        setNewTodo(e.target.value);
-    };
+        setNewTodo(e.target.value);    };
 
     const addTodo = (e) => {
         e.preventDefault();
+        console.log(props.state)
         //WHy cant I get this test to work for duplicate item names?????
-        if(newTodo !== '' && newTodo !== props.state.find(name => name.item === newTodo)){
+        if(newTodo !== '' && newTodo !== props.state.filter(note=>note.item === newTodo).join()){
         props.dispatch({ type: "LIST_OF_TODOS", payload: newTodo });
         clearField()}
     }
@@ -67,26 +71,27 @@ const ClearButton = styled.div`
         <FormContainer>
             <form onSubmit={addTodo}>
                 <FormDiv>
-                {/* <label>Todo Name</label> */}
-
-                <input 
-                placeholder="New Todo"
-                value={newTodo}
-                onChange={handleChanges}
-                ></input>
+                    <input 
+                    placeholder="New Todo"
+                    value={newTodo}
+                    onChange={handleChanges}
+                    ></input>
                 </FormDiv>
                 <AddButton>
-                <button>Add</button>
+                    <button>Add</button>
                 </AddButton>
                 
             </form>
             <ClearDiv>
-            <label>Clear Selected Todos</label>
 
-            <ClearButton>
-            <button onClick={clearSelectedTodos}>Clear</button>
-            </ClearButton>
-            
+                <ClearDivLabel>
+                    <label>Clear Selected Todos</label>
+                </ClearDivLabel>
+
+                <ClearButton>
+                    <button onClick={clearSelectedTodos}>Clear</button>
+                </ClearButton>
+                
             </ClearDiv>
         </FormContainer>
     )
